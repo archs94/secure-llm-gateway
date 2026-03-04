@@ -42,12 +42,11 @@ It enforces authentication, authorization, input validation, rate limiting, logg
 
 ```mermaid
 flowchart TD
-    Client[Client App<br/>(curl / frontend)] --> Gateway[FastAPI Gateway<br/>main.py]
-    Gateway --> Auth[Auth & RBAC<br/>auth.py]
-    Gateway --> Validator[Input Validator<br/>validators.py]
-    Gateway --> RateLimiter[Rate Limiter<br/>rate_limiter.py]
-    Auth --> LLMClient[LLM Client<br/>llm_client.py]
+    Client[Client Application] --> Gateway[FastAPI Gateway main.py]
+    Gateway --> Auth[Auth & RBAC auth.py]
+    Gateway --> Validator[Input Validation validators.py]
+    Gateway --> RateLimiter[Token Bucket rate_limiter.py]
+    Auth --> LLMClient[LLM Client llm_client.py]
     Validator --> LLMClient
     RateLimiter --> LLMClient
-    LLMClient --> OpenAI[OpenAI API / LLM]
-```markdown
+    LLMClient --> OpenAI[OpenAI API]
