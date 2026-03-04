@@ -55,25 +55,29 @@ Logs are JSON formatted and include:
 
 No secrets are logged.
 
-## ✅ Project Structure
+## 📂 Project Structure
+
+The project follows a layered, security-first architecture with clear separation of concerns.
+
+```text
 secure-llm-gateway/
 │
-├── app/
-│   ├── main.py
-│   ├── auth.py
-│   ├── validators.py
-│   ├── rate_limiter.py
-│   ├── llm_client.py
-│   └── logger.py
+├── app/                             # Application Layer
+│   ├── main.py                      # FastAPI entry point & route definitions
+│   ├── auth.py                      # Authentication & RBAC enforcement
+│   ├── validators.py                # Input validation & prompt injection detection
+│   ├── rate_limiter.py              # Token bucket rate limiting
+│   ├── llm_client.py                # OpenAI API wrapper
+│   └── logger.py                    # Structured logging utilities
 │
-├── tests/
-│   └── test_token_bucket.py
+├── tests/                           # Test Layer
+│   └── test_token_bucket.py         # Unit tests
 │
-├── docs/
-│   ├── DESIGN.md
-│   ├── THREAT_MODEL_STRIDE.md
-│   └── ABUSE_CASES.md
+├── docs/                            # Documentation Layer
+│   ├── DESIGN.md                    # Architecture & system design
+│   ├── THREAT_MODEL_STRIDE.md       # STRIDE threat model
+│   └── ABUSE_CASES.md               # Abuse case analysis
 │
-├── requirements.txt
-├── .gitignore
-└── README.md
+├── requirements.txt                 # Project dependencies
+├── .gitignore                       # Ignored files and secrets
+└── README.md                        # Project overview
