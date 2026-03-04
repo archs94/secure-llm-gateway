@@ -38,7 +38,7 @@ It enforces authentication, authorization, input validation, rate limiting, logg
 - **Environment Variable Secrets**  
   Stores `API_GATEWAY_KEY` and OpenAI API keys in `.env` files, loaded securely via `python-dotenv`.
 
-## 3. Architecture Diagram (Mermaid)
+## 3. Architecture Diagram
 
 ```mermaid
 flowchart TD
